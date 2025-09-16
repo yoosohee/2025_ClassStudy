@@ -1,0 +1,256 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyMvRheMwfbTsWGTzHw3Cgyz",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/yoosohee/2025_ClassStudy/blob/main/Data_Structure/ch02\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "n8eagA6y401i",
+        "outputId": "dfa4293d-38df-4af2-f6ad-8280de2b883b"
+      },
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "가방속의 물건:  ['휴대폰', '에어팟', '충전기']\n",
+            "가방속의 물건:  ['휴대폰', '에어팟']\n",
+            "가방속의 물건의 개수:  2\n"
+          ]
+        },
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "False"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 23
+        }
+      ],
+      "source": [
+        "def contains(bag,e):\n",
+        "  return e in bag\n",
+        "\n",
+        "def insert(bag,e):\n",
+        "  bag.append(e)\n",
+        "\n",
+        "def remove(bag,e):\n",
+        "  bag.remove(e)\n",
+        "\n",
+        "def count(bag):\n",
+        "  return len(bag)\n",
+        "\n",
+        "mybag= []\n",
+        "insert(mybag,\"휴대폰\")\n",
+        "insert(mybag,\"에어팟\")\n",
+        "insert(mybag,\"충전기\")\n",
+        "print(\"가방속의 물건: \",mybag)\n",
+        "\n",
+        "remove(mybag, \"충전기\")\n",
+        "print(\"가방속의 물건: \",mybag)\n",
+        "\n",
+        "print(\"가방속의 물건의 개수: \",count(mybag))\n",
+        "contains(mybag,\"물\")\n"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "#실행시간 측정 코드\n",
+        "\n",
+        "import time\n",
+        "start = time.time() #시작시간 저장\n",
+        "\n",
+        "def contains(bag,e):\n",
+        "  return e in bag\n",
+        "\n",
+        "def insert(bag,e):\n",
+        "  bag.append(e)\n",
+        "\n",
+        "def remove(bag,e):\n",
+        "  bag.remove(e)\n",
+        "\n",
+        "def count(bag):\n",
+        "  return len(bag)\n",
+        "\n",
+        "mybag= []\n",
+        "insert(mybag,\"휴대폰\")\n",
+        "insert(mybag,\"에어팟\")\n",
+        "insert(mybag,\"충전기\")\n",
+        "print(\"가방속의 물건: \",mybag)\n",
+        "\n",
+        "remove(mybag, \"충전기\")\n",
+        "print(\"가방속의 물건: \",mybag)\n",
+        "\n",
+        "print(\"가방속의 물건의 개수: \",count(mybag))\n",
+        "contains(mybag,\"물\")\n",
+        "\n",
+        "end = time.time() #끝나는 시간 저장\n",
+        "print(\"실행시간= \",end-start)"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "UCuQafq15NBE",
+        "outputId": "3dc88b03-2845-4793-a5ac-a38573f5da43"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "가방속의 물건:  ['휴대폰', '에어팟', '충전기']\n",
+            "가방속의 물건:  ['휴대폰', '에어팟']\n",
+            "가방속의 물건의 개수:  2\n",
+            "실행시간=  0.0005486011505126953\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "import time\n",
+        "import random\n",
+        "\n",
+        "def find_max(A):\n",
+        "  max = A[0] #A = [5,8,2,9], 최댓값 찾기 함수\n",
+        "  for item in A:\n",
+        "    if item > max:\n",
+        "      max = item #max = 9\n",
+        "  return max\n",
+        "\n",
+        "start = time.time()\n",
+        "A = [random.randint(0,10000) for i in range(10000)] #A=0~10000을 랜덤하게 반복\n",
+        "for i in range(10000): #A를 10000번 반복\n",
+        "  max = find_max(A) #max=find_max를 A번 반복한 후의 최댓값\n",
+        "end = time.time()\n",
+        "print (\"실행시간= \", end-start)"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "pEYJ6liD9-q0",
+        "outputId": "6fdfe55e-625b-4ae0-957a-fe1c826f077a"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "실행시간=  1.8834176063537598\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "def search(A, key): #순차탐색\n",
+        "  n = len(A) #개수만큼 반복하기 위해 길이 구함\n",
+        "  for i in range(n): #n번 반복\n",
+        "    if A[i] == key:\n",
+        "      return i\n",
+        "  return -1 #A에 key가 없으면 -1 반환\n",
+        "\n",
+        "array = [2,3,4,5,4,5,8,7,9]\n",
+        "search(array, 3)"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "zOfKjYyA-3Cb",
+        "outputId": "64c7230d-93b6-40f4-9f64-c388485872ad"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "1"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 41
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "def factorial(n): #순환구조의 팩토리얼 함수\n",
+        "  if n==1:\n",
+        "    return 1\n",
+        "  else:\n",
+        "    return n*factorial(n-1)\n",
+        "\n",
+        "factorial(5)"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "irfSrZTGMjaC",
+        "outputId": "89b82725-0d9c-41d4-f47f-2718d97da73a"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "120"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 48
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [],
+      "metadata": {
+        "id": "FhL7GX2cTHSM"
+      },
+      "execution_count": null,
+      "outputs": []
+    }
+  ]
+}
