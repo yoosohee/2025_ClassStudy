@@ -1,0 +1,938 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyPM/9koIcOhConnE9rNX9za",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/yoosohee/2025_ClassStudy/blob/main/Data_Structure/ch03\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "xI34EGnk9Xrf"
+      },
+      "outputs": [],
+      "source": [
+        "if class False try"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "##자료형\n",
+        "정수형: int  \n",
+        "실수형: float  \n",
+        "복소수형: cmplex  \n",
+        "부울형: bool  (true/false)\n",
+        "문자열형: str  "
+      ],
+      "metadata": {
+        "id": "aJEfVMwi-FWS"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "리스트: [6, 9, '정수', [6, 7] ]  -> 수정 가능  \n",
+        "튜플: (1, 2, 3) -> 수정, 부분삭제 불가  \n",
+        "딕셔너리: {a:1, b:5}  \n",
+        "집합: {1, 2, 3}  "
+      ],
+      "metadata": {
+        "id": "0rolGpon-iay"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "num= 123  \n",
+        "pi= 3.14  \n",
+        "msg= \"GAME OVER\"  \n",
+        "a= [4, 5, 6, 7]"
+      ],
+      "metadata": {
+        "id": "Sxit8--R_Dsa"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "j9=10"
+      ],
+      "metadata": {
+        "id": "_yxMZDCV_bRK"
+      },
+      "execution_count": 1,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "9j=10"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 110
+        },
+        "id": "d1IvzU1M_cy8",
+        "outputId": "bcbf04a3-69dd-460e-c5fd-971163d8efe2"
+      },
+      "execution_count": 2,
+      "outputs": [
+        {
+          "output_type": "error",
+          "ename": "SyntaxError",
+          "evalue": "cannot assign to literal here. Maybe you meant '==' instead of '='? (ipython-input-3941151429.py, line 1)",
+          "traceback": [
+            "\u001b[0;36m  File \u001b[0;32m\"/tmp/ipython-input-3941151429.py\"\u001b[0;36m, line \u001b[0;32m1\u001b[0m\n\u001b[0;31m    9j=10\u001b[0m\n\u001b[0m    ^\u001b[0m\n\u001b[0;31mSyntaxError\u001b[0m\u001b[0;31m:\u001b[0m cannot assign to literal here. Maybe you meant '==' instead of '='?\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "_fjda_ = 10\n",
+        "변수 = 10"
+      ],
+      "metadata": {
+        "id": "t7HS_58N_d-7"
+      },
+      "execution_count": 4,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "##연산자  \n",
+        "더하기: +  \n",
+        "빼기: -  \n",
+        "곱하기: *  \n",
+        "나누기: /  \n",
+        "몫: //   \n",
+        "나머지: %  \n",
+        "지수: **  \n",
+        "and: &&  \n",
+        "or: ||"
+      ],
+      "metadata": {
+        "id": "EUgqgK_kARhL"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "a=0\n",
+        "a += 1#a=a+1\n",
+        "a"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "LFsVVlWS_gyr",
+        "outputId": "e5fe52a6-5b75-4b9b-d28f-96cab0d2071e"
+      },
+      "execution_count": 6,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "1"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 6
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "날씨 = [\"맑음\", \"흐림\", \"비\", \"눈\"]\n",
+        "'비' not in 날씨"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "y7565brsB3c0",
+        "outputId": "3e0c9bb9-9a25-413e-b433-f4f6e72f6d6c"
+      },
+      "execution_count": 7,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "False"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 7
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "a=[1,2,3,4,5,6]\n",
+        "1 in a"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "CFo4lhyCCBx-",
+        "outputId": "5fc9a877-6b7a-4c95-ebfc-2861efc2e859"
+      },
+      "execution_count": 8,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "True"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 8
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "input() 함수"
+      ],
+      "metadata": {
+        "id": "1MrKhwo_CdZT"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "#나이 입력\n",
+        "#취미 입력\n",
+        "#이름 입력\n",
+        "\n",
+        "name=input(\"이름을 입력하세요. \")\n",
+        "habit=input(\"취미를 입력하세요. \")\n",
+        "age=int (input(\"나이를 입력하세요. \"))\n",
+        "\n",
+        "print(\"당신의 이름은 \" ,name,\"이고, \" ,habit,\"를 좋아하시는군요!\")\n",
+        "print(\"그리고 당신은 10년 후에 \",age + 10,\"살이 됩니다.\")"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "CeRKz48nCELM",
+        "outputId": "8c15fb40-8b0a-4407-a793-133336a3bdbf"
+      },
+      "execution_count": 21,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "이름을 입력하세요. 유소희\n",
+            "취미를 입력하세요. 다이어리 쓰기\n",
+            "나이를 입력하세요. 22\n",
+            "당신의 이름은  유소희 이고,  다이어리 쓰기 를 좋아하시는군요!\n",
+            "그리고 당신은 10년 후에  32 살이 됩니다.\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "##이스케이프 시퀀스"
+      ],
+      "metadata": {
+        "id": "HC9qpPDAIOLV"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "print (\"hello world\") #줄바꿈\n",
+        "print (\"she said \\'hi\\'\")\n",
+        "print ('It\\'s okay')\n",
+        "print (\"C:\\\\Users\\\\Name\")\n",
+        "print (\"A\\tB\")"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "sDKYmEAnDBRG",
+        "outputId": "72246989-c63a-4f6b-9d9a-a643d2897ee2"
+      },
+      "execution_count": 23,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "hello world\n",
+            "she said 'hi'\n",
+            "It's okay\n",
+            "C:\\Users\\Name\n",
+            "A\tB\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "#조건문"
+      ],
+      "metadata": {
+        "id": "YNTeG3t4IygN"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "if a == 0:\n",
+        "    print(\"0입니다.\")"
+      ],
+      "metadata": {
+        "id": "g0q8rh6vIpIg"
+      },
+      "execution_count": 26,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "#숫자를 입력받아서 짝수이면 '짝수입니다' 홀수이면 '홀수입니다' 를 출력\n",
+        "num = int(input(\"숫자를 입력하세요: \"))\n",
+        "\n",
+        "if num % 2 == 0:\n",
+        "  print(\"짝수입니다.\")\n",
+        "\n",
+        "else:\n",
+        "  print(\"홀수입니다.\")"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "QV_u1L_bI7Gw",
+        "outputId": "0dd7753b-d408-4163-c619-355e063a6082"
+      },
+      "execution_count": 29,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "숫자를 입력하세요: 45323187\n",
+            "홀수입니다.\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "#점수를 입력받아서 점수가 90점 이상이면 A, 80점 이상이면 B, 70점 이상이면 C, 60점 이상이면 D, 나머지 F 출력\n",
+        "score = int (input(\"점수를 입력하세요: \"))\n",
+        "\n",
+        "if score >= 90:\n",
+        "  grade = \"A\"\n",
+        "\n",
+        "elif score >= 80:\n",
+        " grade = \"B\"\n",
+        "\n",
+        "elif score >= 70:\n",
+        "  grade = \"C\"\n",
+        "\n",
+        "elif score >= 60:\n",
+        "  grade = \"D\"\n",
+        "\n",
+        "else:\n",
+        "  grade = \"F\"\n",
+        "\n",
+        "print(\"위 학생의 등급은 \", grade, \"입니다.\")"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "pe4hz29cJlJw",
+        "outputId": "5efc042d-4301-4f88-a540-a6de02b016bc"
+      },
+      "execution_count": 36,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "점수를 입력하세요: 55\n",
+            "위 학생의 등급은  F 입니다.\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "#반복문  \n",
+        "for문: 횟수가 정해져있는 경우 -> for i in range(5)  \n",
+        "while문: 조건이 성립할 때까지  \n",
+        "while True: 무한 반복\n"
+      ],
+      "metadata": {
+        "id": "rQ0RVm1tPcKo"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "for i in range(1,11,2):\n",
+        "  print(i)"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "KJ7XI3GJLHfx",
+        "outputId": "4fed0a85-98fd-473e-9cf0-45b1e2a2512e"
+      },
+      "execution_count": 38,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "1\n",
+            "3\n",
+            "5\n",
+            "7\n",
+            "9\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "for i in range (3,11,3):\n",
+        "  print(i, end=\", \")"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "Yk-IEYXjQHBb",
+        "outputId": "a29feaaa-b6f9-4639-e7a4-67719de69d9b"
+      },
+      "execution_count": 41,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "3, 6, 9, "
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "for i in [\"월\", \"화\", \"수\"]:\n",
+        "  print(i)"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "qmLHXE09QdDI",
+        "outputId": "bc419dea-7e59-48e4-aa3e-ab47edf0048a"
+      },
+      "execution_count": 47,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "월\n",
+            "화\n",
+            "수\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "for c in \"Game Over!\":\n",
+        "  print(c)"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "Xnw5hLVwQnkK",
+        "outputId": "c75d3997-70ce-464a-e44d-956d71af9a58"
+      },
+      "execution_count": 48,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "G\n",
+            "a\n",
+            "m\n",
+            "e\n",
+            " \n",
+            "O\n",
+            "v\n",
+            "e\n",
+            "r\n",
+            "!\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "mydic = {\"월\":\"맑음\",\"화\":\"흐림\",\"수\":\"비\"}\n",
+        "for i in mydic:\n",
+        "  print(\"key=\",i) #key값\n",
+        "  print(mydic[i]) #value값"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "sC5kVO1fQx5q",
+        "outputId": "6a717ce0-bbc7-411c-9bc1-23264701a927"
+      },
+      "execution_count": 54,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "key= 월\n",
+            "맑음\n",
+            "key= 화\n",
+            "흐림\n",
+            "key= 수\n",
+            "비\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "##문자열"
+      ],
+      "metadata": {
+        "id": "wfjuiwRqSTbp"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "a= \"동양미래대\"\n",
+        "b= \"안녕하세요\"\n",
+        "a+b"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 35
+        },
+        "id": "RLijlXiWRRFp",
+        "outputId": "d2ce18c3-4a5a-4a00-83f0-9658fab20285"
+      },
+      "execution_count": 55,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "'동양미래대안녕하세요'"
+            ],
+            "application/vnd.google.colaboratory.intrinsic+json": {
+              "type": "string"
+            }
+          },
+          "metadata": {},
+          "execution_count": 55
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "a*3"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 35
+        },
+        "id": "rurr9eOtSZoQ",
+        "outputId": "18ea335c-8857-4f8c-c52c-63edccc7aed2"
+      },
+      "execution_count": 56,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "'동양미래대동양미래대동양미래대'"
+            ],
+            "application/vnd.google.colaboratory.intrinsic+json": {
+              "type": "string"
+            }
+          },
+          "metadata": {},
+          "execution_count": 56
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "a*b"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 147
+        },
+        "id": "RptzJls0Sa3R",
+        "outputId": "aadadaab-49b9-42a4-c788-25f3e9aef46e"
+      },
+      "execution_count": 57,
+      "outputs": [
+        {
+          "output_type": "error",
+          "ename": "TypeError",
+          "evalue": "can't multiply sequence by non-int of type 'str'",
+          "traceback": [
+            "\u001b[0;31m---------------------------------------------------------------------------\u001b[0m",
+            "\u001b[0;31mTypeError\u001b[0m                                 Traceback (most recent call last)",
+            "\u001b[0;32m/tmp/ipython-input-3507077656.py\u001b[0m in \u001b[0;36m<cell line: 0>\u001b[0;34m()\u001b[0m\n\u001b[0;32m----> 1\u001b[0;31m \u001b[0ma\u001b[0m\u001b[0;34m*\u001b[0m\u001b[0mb\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m",
+            "\u001b[0;31mTypeError\u001b[0m: can't multiply sequence by non-int of type 'str'"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "a[-2]"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 35
+        },
+        "id": "3AbCJTiJShVQ",
+        "outputId": "0f66a9ab-bd9e-4924-e04b-fb5a184d2b72"
+      },
+      "execution_count": 58,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "'래'"
+            ],
+            "application/vnd.google.colaboratory.intrinsic+json": {
+              "type": "string"
+            }
+          },
+          "metadata": {},
+          "execution_count": 58
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "a[0:2]"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 35
+        },
+        "id": "pAW_J-fZS_yq",
+        "outputId": "3cc4e004-05ca-4af5-c0ef-65585d927226"
+      },
+      "execution_count": 59,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "'동양'"
+            ],
+            "application/vnd.google.colaboratory.intrinsic+json": {
+              "type": "string"
+            }
+          },
+          "metadata": {},
+          "execution_count": 59
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "hobby='테니스'\n",
+        "score=4.5\n",
+        "age=22\n",
+        "\n",
+        "msg=\"당신의 학점은 %4.1f입니다.\" %score\n",
+        "msg1= \"취미=%s, 나이=%d, 학점=%f\"%(hobby,age,score)\n",
+        "msg1"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 35
+        },
+        "id": "4kb4_tydWRFK",
+        "outputId": "adbb2b67-29f0-4ec8-cd55-5c82bf4ef4c0"
+      },
+      "execution_count": 63,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "'취미=테니스, 나이=22, 학점=4.500000'"
+            ],
+            "application/vnd.google.colaboratory.intrinsic+json": {
+              "type": "string"
+            }
+          },
+          "metadata": {},
+          "execution_count": 63
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        " ## 리스트(list)  \n",
+        "\n",
+        " 리스트.append(b): 리스트에 b를 맨 뒤에 추가  \n",
+        " 리스트.extend(lis): 리스트에 lis를 추가  \n",
+        " 리스트.count(a): 항목 a의 개수를 세고 개수 반환  \n",
+        " 리스트.index(a): a를 찾아 인덱스 반환  \n",
+        " 리스트.insert(a,b): a위치에 b를 삽입  \n",
+        " 리스트.pop(a): 마지막 항목을 반환 후 삭제  \n",
+        " 리스트.remove(a): a를 삭제  \n",
+        " 리스트.reverse(a): 리스트 항목의 순서를 뒤집는다  \n",
+        " 리스트.sort(a): 항목 정렬"
+      ],
+      "metadata": {
+        "id": "62859im1W56L"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "def find_min_max(A): #최댓값과 최솟값을 동시에 찾아 반환\n",
+        "  min=A[0]\n",
+        "  max=A[0]\n",
+        "  for i in range(1,len(A)): #i:1 ~ len(A)-1\n",
+        "    if max < A[i] : max=A[i] #최댓값 갱신\n",
+        "    if min > A[i] : min=A[i] #최솟값 갱신\n",
+        "  return min, max\n",
+        "\n",
+        "data=[5,3,8,4,9,1,6,2,7]\n",
+        "x,y=find_min_max(data)\n",
+        "print(\"(min,max)=\",(x,y))"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "DYIWivU1WmeU",
+        "outputId": "619b9ba7-bf5b-4353-d980-0e8423a6ef1b"
+      },
+      "execution_count": 65,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "(min,max)= (1, 9)\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "def hap(a,b,c):\n",
+        "  return a+b+c"
+      ],
+      "metadata": {
+        "id": "ykh-qnGObHg1"
+      },
+      "execution_count": 74,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "hap(2,3,4)"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "uOhQEJaYcGKv",
+        "outputId": "4fe85af4-5b2a-4652-9842-d80962c7d5e3"
+      },
+      "execution_count": 75,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "9"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 75
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "hap(3)"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 147
+        },
+        "id": "sorSdXX7cdVs",
+        "outputId": "c1c67e1d-815b-4788-c9e6-e28680427e52"
+      },
+      "execution_count": 76,
+      "outputs": [
+        {
+          "output_type": "error",
+          "ename": "TypeError",
+          "evalue": "hap() missing 2 required positional arguments: 'b' and 'c'",
+          "traceback": [
+            "\u001b[0;31m---------------------------------------------------------------------------\u001b[0m",
+            "\u001b[0;31mTypeError\u001b[0m                                 Traceback (most recent call last)",
+            "\u001b[0;32m/tmp/ipython-input-1265998220.py\u001b[0m in \u001b[0;36m<cell line: 0>\u001b[0;34m()\u001b[0m\n\u001b[0;32m----> 1\u001b[0;31m \u001b[0mhap\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;36m3\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m",
+            "\u001b[0;31mTypeError\u001b[0m: hap() missing 2 required positional arguments: 'b' and 'c'"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "def hap(a,b=1,c=2): #키워드 인수\n",
+        "  return a+b+c"
+      ],
+      "metadata": {
+        "id": "amncDTgkcLWd"
+      },
+      "execution_count": 82,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "hap(5)"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "ZQUInjjfcQlG",
+        "outputId": "8c1757b4-9048-43a4-8e4e-9c51924b4cef"
+      },
+      "execution_count": 83,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "8"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 83
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "#range(begin,end,step):\n",
+        "list(range(4)) #default값: begin=0, step=1로 표현"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "CYTfEYNZcZue",
+        "outputId": "72215289-45b7-4349-b4f1-c48e9d216e8b"
+      },
+      "execution_count": 84,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "[0, 1, 2, 3]"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 84
+        }
+      ]
+    }
+  ]
+}
