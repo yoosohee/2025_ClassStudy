@@ -1,3 +1,5 @@
+# 영상 자르기, RGB 채널별로 나누기
+
 import cv2 as cv
 import sys
 
