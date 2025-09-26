@@ -4,7 +4,7 @@
   "metadata": {
     "colab": {
       "provenance": [],
-      "authorship_tag": "ABX9TyOQWeQPq6rLFR+TbwsFSnBS",
+      "authorship_tag": "ABX9TyNF2GWsbsX8urtnB1ZNlgov",
       "include_colab_link": true
     },
     "kernelspec": {
@@ -964,9 +964,34 @@
     },
     {
       "cell_type": "code",
+      "source": [
+        "print('평균제곱법: ', metrics.mean_squared_error(y_test, y_pred))\n",
+        "print('루트 평균제곱법: ', np.sqrt(metrics.mean_squared_error(y_test, y_pred)))"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "6CYBYGcK0j9t",
+        "outputId": "8c7a6c9b-0188-4c57-ba06-18d4b6dd4a37"
+      },
+      "execution_count": 18,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "평균제곱법:  24.03237894551279\n",
+            "루트 평균제곱법:  4.902283034006991\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
       "source": [],
       "metadata": {
-        "id": "6CYBYGcK0j9t"
+        "id": "d14nMjGh1qBt"
       },
       "execution_count": null,
       "outputs": []
