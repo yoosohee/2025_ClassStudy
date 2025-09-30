@@ -4,7 +4,7 @@
   "metadata": {
     "colab": {
       "provenance": [],
-      "authorship_tag": "ABX9TyNIG1O0iFRYQv292OWOCDxe",
+      "authorship_tag": "ABX9TyNIMv4XvS/QKpnZaseLlSVv",
       "include_colab_link": true
     },
     "kernelspec": {
@@ -289,11 +289,70 @@
     },
     {
       "cell_type": "code",
-      "source": [],
+      "source": [
+        "class Stack:\n",
+        "  def __init__(self, capacity = 10):\n",
+        "    self.capacity = capacity\n",
+        "    self.items = [None]*self.capacity\n",
+        "    self.top = 0"
+      ],
       "metadata": {
         "id": "P4L3-5cqRSSy"
       },
-      "execution_count": 39,
+      "execution_count": 45,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "def size(self):\n",
+        "  return self.top\n",
+        "def clear(self):\n",
+        "  self.top = 0"
+      ],
+      "metadata": {
+        "id": "8_4dQSsYV8qC"
+      },
+      "execution_count": 47,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "def isEmty(self):\n",
+        "  if self.top == 0:\n",
+        "    return True\n",
+        "  else:\n",
+        "    return False"
+      ],
+      "metadata": {
+        "id": "-ZwClEE-WqMS"
+      },
+      "execution_count": 49,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "def isFull(self):\n",
+        "  if self.top == self.capacity:\n",
+        "    return True\n",
+        "  else:\n",
+        "    return False"
+      ],
+      "metadata": {
+        "id": "Z9utLGrQW1sA"
+      },
+      "execution_count": 50,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [],
+      "metadata": {
+        "id": "toWW4uigXEYy"
+      },
+      "execution_count": null,
       "outputs": []
     }
   ]
