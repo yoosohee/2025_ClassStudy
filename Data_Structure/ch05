@@ -4,7 +4,7 @@
   "metadata": {
     "colab": {
       "provenance": [],
-      "authorship_tag": "ABX9TyNM8lReXsZUEXR7LaxGnSBz",
+      "authorship_tag": "ABX9TyOYPr7LPoWFtN2CDATkfOPI",
       "include_colab_link": true
     },
     "kernelspec": {
@@ -558,9 +558,40 @@
     },
     {
       "cell_type": "code",
+      "source": [
+        "s = ArrayStack(100)\n",
+        "\n",
+        "msg = input(\"문자열 입력: \")\n",
+        "for c in msg:\n",
+        "  s.push(c)\n",
+        "print(\"문자열 출력: \", end='')\n",
+        "while not s.isEmpty():\n",
+        "  print(s.pop(), end='')"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "eZMtKHY5gr3j",
+        "outputId": "40038b2a-a5cb-4eaa-ab1a-960e37150d1a"
+      },
+      "execution_count": 90,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "문자열 입력: 수진언니돼지예요?\n",
+            "문자열 출력: ?요예지돼니언진수"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
       "source": [],
       "metadata": {
-        "id": "eZMtKHY5gr3j"
+        "id": "zQgVLC_Bh6p5"
       },
       "execution_count": null,
       "outputs": []
