@@ -4,7 +4,7 @@
   "metadata": {
     "colab": {
       "provenance": [],
-      "authorship_tag": "ABX9TyN2hShpS2Eaiog7/v92R9iK",
+      "authorship_tag": "ABX9TyNM8lReXsZUEXR7LaxGnSBz",
       "include_colab_link": true
     },
     "kernelspec": {
@@ -28,7 +28,7 @@
     },
     {
       "cell_type": "code",
-      "execution_count": 1,
+      "execution_count": 63,
       "metadata": {
         "id": "z8tNJEu79tnS"
       },
@@ -91,9 +91,9 @@
           "base_uri": "https://localhost:8080/"
         },
         "id": "iat81fwrGD2w",
-        "outputId": "23a957e4-9a4f-4352-d848-090b977b0a00"
+        "outputId": "59dad409-52a0-4b8f-e343-a7d00ee3d848"
       },
-      "execution_count": 2,
+      "execution_count": 64,
       "outputs": [
         {
           "output_type": "stream",
@@ -118,9 +118,9 @@
           "base_uri": "https://localhost:8080/"
         },
         "id": "RvqU-Z3OHn0I",
-        "outputId": "4e8836cb-0921-4da2-c55c-2e04a044cd09"
+        "outputId": "bdc67ed6-2d7a-41f6-edb1-2e1847b0a85a"
       },
-      "execution_count": 3,
+      "execution_count": 65,
       "outputs": [
         {
           "output_type": "stream",
@@ -142,9 +142,9 @@
           "base_uri": "https://localhost:8080/"
         },
         "id": "zv6GDqQ1JBCK",
-        "outputId": "675d9410-6e25-4bbe-891f-1bdfc9137de6"
+        "outputId": "27e7127b-89bf-40ff-96b0-a98978d306b2"
       },
-      "execution_count": 4,
+      "execution_count": 66,
       "outputs": [
         {
           "output_type": "stream",
@@ -168,9 +168,9 @@
           "base_uri": "https://localhost:8080/"
         },
         "id": "_TADoB5zJapo",
-        "outputId": "8853e6de-97cb-4b24-b4ea-ff4c978a673f"
+        "outputId": "21131df0-68bb-4447-8425-db57b8db8345"
       },
-      "execution_count": 5,
+      "execution_count": 67,
       "outputs": [
         {
           "output_type": "stream",
@@ -193,9 +193,9 @@
           "base_uri": "https://localhost:8080/"
         },
         "id": "1qa3kFpCJchX",
-        "outputId": "53631bd2-2958-4f56-faa9-0d313181f4f8"
+        "outputId": "7eba1d40-1812-471e-b0b3-f1276004a368"
       },
-      "execution_count": 6,
+      "execution_count": 68,
       "outputs": [
         {
           "output_type": "stream",
@@ -398,9 +398,169 @@
     },
     {
       "cell_type": "code",
-      "source": [],
+      "source": [
+        "class ArrayStack :\n",
+        "    def __init__( self, capacity ):         # 생성자 정의\n",
+        "        self.capacity = capacity           # 용량(고정)\n",
+        "        self.array = [None]*self.capacity   # 요소들을 저장할 배열\n",
+        "        self.top = -1                     # 스택 상단의 인덱스\n",
+        "\n",
+        "    # 코드 1.2b: 스택 클래스의 연산들\n",
+        "    def isEmpty( self ) :\n",
+        "       return self.top == -1\n",
+        "\n",
+        "    def isFull( self ) :\n",
+        "       return self.top == self.capacity-1\n",
+        "\n",
+        "    def push( self, item ):\n",
+        "        if not self.isFull() :\n",
+        "            self.top += 1\n",
+        "            self.array[self.top] = item\n",
+        "        else: pass              # overflow 예외는 처리하지 않았음\n",
+        "\n",
+        "    def pop( self ):\n",
+        "        if not self.isEmpty():\n",
+        "            self.top -= 1\n",
+        "            return self.array[self.top+1]\n",
+        "        else: pass              # underflow 예외는 처리하지 않았음\n",
+        "\n",
+        "    def peek( self ):\n",
+        "        if not self.isEmpty():\n",
+        "            return self.array[self.top]\n",
+        "        else: pass              # underflow 예외는 처리하지 않았음\n",
+        "\n",
+        "    def __str__(self ) :\n",
+        "        return str(self.array[0:self.top+1][::-1])\n",
+        "\n",
+        "    def size( self ) : return self.top+1"
+      ],
       "metadata": {
         "id": "xErY6gK2ZGQi"
+      },
+      "execution_count": 54,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "stack = ArrayStack(5)"
+      ],
+      "metadata": {
+        "id": "7JbhFoe0d3Lx"
+      },
+      "execution_count": 84,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# 1. 데이터  삽입\n",
+        "stack.push('a')\n",
+        "stack.push('b')\n",
+        "stack.push('c')\n",
+        "print(stack)"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "92RKZZIPeuCU",
+        "outputId": "b2d7da58-501c-41d2-b2b2-34af0e2ff333"
+      },
+      "execution_count": 85,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "['c', 'b', 'a']\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# 2. 최상단 항목 확인 (peek)\n",
+        "top_item = stack.peek()\n",
+        "print (\"최상단 항목: \", top_item)\n",
+        "print(stack)"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "GlfnkynnfZhh",
+        "outputId": "176d36b3-e29b-40fe-9f2c-c7e3b631e32b"
+      },
+      "execution_count": 86,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "최상단 항목:  c\n",
+            "['c', 'b', 'a']\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# 3. 데이터 추출 (pop)\n",
+        "pop_item = stack.pop()\n",
+        "print (\"추출된 항목: \", pop_item)\n",
+        "print(stack)"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "sl-mkRrqgVLh",
+        "outputId": "a2a9f1eb-178e-4366-84aa-bf3f9d432fe5"
+      },
+      "execution_count": 87,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "추출된 항목:  c\n",
+            "['b', 'a']\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# 4. 빈 상태 확인\n",
+        "print (\"비어있는가?: \", stack.isEmpty())"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "cJv6pC1jgXBJ",
+        "outputId": "2a8928e0-f584-4635-ce29-5f12302e3320"
+      },
+      "execution_count": 88,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "비어있는가?:  False\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [],
+      "metadata": {
+        "id": "eZMtKHY5gr3j"
       },
       "execution_count": null,
       "outputs": []
