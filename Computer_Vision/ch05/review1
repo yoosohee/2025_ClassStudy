@@ -23,7 +23,7 @@ emboss_bad = np.uint8(cv.filter2D(gray16, -1, femboss) + 128)
 emboss_worse = cv.filter2D(gray, -1, femboss)
 
 cv.imshow('Emboss', emboss) #엠보싱 (clip 함수를 이용해 0~255 사이 값 적용해서 good 이미지)
-cv.imshow('Emboss_bad', emboss_bad) #엠보싱 (바로 변환해서 bad 이미지)
+cv.imshow('Emboss_bad', emboss_bad) #엠보싱 (clip 과정 없이 uint8로 바로 변환해서 bad 이미지)
 cv.imshow('Emboss_worse', emboss_worse) #엠보싱 (연산 x, worse 이미지)
 
 cv.waitKey()
