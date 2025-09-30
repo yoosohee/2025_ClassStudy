@@ -1,0 +1,300 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyNIG1O0iFRYQv292OWOCDxe",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/yoosohee/2025_ClassStudy/blob/main/Data_Structure/ch05\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": 1,
+      "metadata": {
+        "id": "z8tNJEu79tnS"
+      },
+      "outputs": [],
+      "source": [
+        "class ArrayList:\n",
+        "    # __init__ 메서드와 다른 메서드들의 들여쓰기를 맞춰줍니다.\n",
+        "    def __init__(self, capacity=100):\n",
+        "        self.capacity = capacity\n",
+        "        self.data = [None] * capacity\n",
+        "        self.size = 0\n",
+        "\n",
+        "    # 리스트의 연산: 클래스와 메소드\n",
+        "    def isEmpty(self):\n",
+        "        return self.size == 0\n",
+        "\n",
+        "    def isFull(self):\n",
+        "        return self.size == self.capacity\n",
+        "\n",
+        "    def getEnty(self, pos):\n",
+        "        if 0 <= pos < self.size:\n",
+        "            return self.data[pos]\n",
+        "        else:\n",
+        "            return None\n",
+        "\n",
+        "    # self.array -> self.data 로 수정\n",
+        "    def insert(self, pos, e):\n",
+        "        if not self.isFull() and 0 <= pos <= self.size:\n",
+        "            for i in range(self.size, pos, -1):\n",
+        "                self.data[i] = self.data[i-1]\n",
+        "            self.data[pos] = e\n",
+        "            self.size += 1\n",
+        "        else:\n",
+        "            pass # 용량이 가득 찼거나 pos가 범위를 벗어나면 아무것도 안 함\n",
+        "\n",
+        "    # self.array -> self.data 로 수정\n",
+        "    def delete(self, pos):\n",
+        "        if not self.isEmpty() and 0 <= pos < self.size:\n",
+        "            e = self.data[pos]\n",
+        "            for i in range(pos, self.size - 1):\n",
+        "                self.data[i] = self.data[i+1]\n",
+        "            self.size -= 1\n",
+        "            return e\n",
+        "        else:\n",
+        "            pass # 리스트가 비었거나 pos가 범위를 벗어나면 아무것도 안 함\n",
+        "\n",
+        "    # self.array -> self.data 로 수정\n",
+        "    def __str__(self):\n",
+        "        return str(self.data[0:self.size])"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "Is = ArrayList()\n",
+        "print(\"초기 리스트:\", Is)"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "iat81fwrGD2w",
+        "outputId": "23a957e4-9a4f-4352-d848-090b977b0a00"
+      },
+      "execution_count": 2,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "초기 리스트: []\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# 1. 데이터 삽입 ('a', 'b', 'c')\n",
+        "Is.insert(0, 'a')\n",
+        "Is.insert(1, 'b')\n",
+        "Is.insert(2, 'c')\n",
+        "print(\"데이터 삽입 후:\", Is)"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "RvqU-Z3OHn0I",
+        "outputId": "4e8836cb-0921-4da2-c55c-2e04a044cd09"
+      },
+      "execution_count": 3,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "데이터 삽입 후: ['a', 'b', 'c']\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# 2. 데이터 조회\n",
+        "print (Is.getEnty(1))"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "zv6GDqQ1JBCK",
+        "outputId": "675d9410-6e25-4bbe-891f-1bdfc9137de6"
+      },
+      "execution_count": 4,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "b\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# 3. 데이터 삭제\n",
+        "delete = Is.delete(0)\n",
+        "print (\"삭제된 요소: \", delete)\n",
+        "print (\"삭제 후 리스트: \", Is)"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "_TADoB5zJapo",
+        "outputId": "8853e6de-97cb-4b24-b4ea-ff4c978a673f"
+      },
+      "execution_count": 5,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "삭제된 요소:  a\n",
+            "삭제 후 리스트:  ['b', 'c']\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# 4. 리스트가 비어있는지 확인\n",
+        "print (\"리스트가 비어있는가?: \", Is.isEmpty())"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "1qa3kFpCJchX",
+        "outputId": "53631bd2-2958-4f56-faa9-0d313181f4f8"
+      },
+      "execution_count": 6,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "리스트가 비어있는가?:  False\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "클래스"
+      ],
+      "metadata": {
+        "id": "Z6cpyyhaOuBp"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "class Car:\n",
+        "  def __init__(self, color, speed=0):\n",
+        "    self.color = color\n",
+        "    self.speed = speed\n",
+        "  def speedUp(self):\n",
+        "    self.speed += 10\n",
+        "  def speedDown(self):\n",
+        "    self.speed -= 10"
+      ],
+      "metadata": {
+        "id": "kZqmD7VCKD66"
+      },
+      "execution_count": 41,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "my_car = Car('black', 0)\n",
+        "mom_car = Car('red', 120)\n",
+        "dad_car = Car('yellow')\n",
+        "print(dad_car.speed)"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "styY4X-ZO_PR",
+        "outputId": "9f92fc50-0eaa-4f45-d302-d168b3889b00"
+      },
+      "execution_count": 42,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "0\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "mom_car.speedDown()\n",
+        "mom_car.speedDown()\n",
+        "my_car.speedUp()\n",
+        "print(mom_car.speed)\n",
+        "print(my_car.speed)"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "1SxjuBNhQDJx",
+        "outputId": "f02a858f-a6eb-4a93-c960-d4f522e28ef2"
+      },
+      "execution_count": 43,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "100\n",
+            "10\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [],
+      "metadata": {
+        "id": "P4L3-5cqRSSy"
+      },
+      "execution_count": 39,
+      "outputs": []
+    }
+  ]
+}
