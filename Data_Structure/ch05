@@ -4,7 +4,7 @@
   "metadata": {
     "colab": {
       "provenance": [],
-      "authorship_tag": "ABX9TyNIMv4XvS/QKpnZaseLlSVv",
+      "authorship_tag": "ABX9TyN2hShpS2Eaiog7/v92R9iK",
       "include_colab_link": true
     },
     "kernelspec": {
@@ -348,9 +348,59 @@
     },
     {
       "cell_type": "code",
-      "source": [],
+      "source": [
+        "def push (self, item):\n",
+        "  if not self.isFull():\n",
+        "    self.items[self.top] = item\n",
+        "    self.top += 1\n",
+        "  else:\n",
+        "    print(\"overflow\")\n",
+        "    exit()"
+      ],
       "metadata": {
         "id": "toWW4uigXEYy"
+      },
+      "execution_count": 51,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "def pop(self):\n",
+        "  if not self.isEmpty():\n",
+        "    self.top -= 1\n",
+        "    return self.items[self.top]\n",
+        "  else:\n",
+        "    print (\"underflow\")\n",
+        "    exit()"
+      ],
+      "metadata": {
+        "id": "ZEl8Fot3X5nT"
+      },
+      "execution_count": 52,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "def peak(self):\n",
+        "  if not self.isEmpty():\n",
+        "    return self.items[self.top-1]\n",
+        "  else:\n",
+        "    print(\"underflow\")\n",
+        "    exit()"
+      ],
+      "metadata": {
+        "id": "0UdqvLhVYxpS"
+      },
+      "execution_count": 53,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [],
+      "metadata": {
+        "id": "xErY6gK2ZGQi"
       },
       "execution_count": null,
       "outputs": []
