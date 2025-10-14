@@ -1,0 +1,288 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyP8uRKouitoXMkz/GhEPkKW",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/yoosohee/2025_ClassStudy/blob/main/Data_Structure/ch06\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": 1,
+      "metadata": {
+        "id": "yb8js0M1Gl5P"
+      },
+      "outputs": [],
+      "source": [
+        "class ArrayStack :\n",
+        "    def __init__( self, capacity ):         # 생성자 정의\n",
+        "        self.capacity = capacity           # 용량(고정)\n",
+        "        self.array = [None]*self.capacity   # 요소들을 저장할 배열\n",
+        "        self.top = -1                     # 스택 상단의 인덱스\n",
+        "\n",
+        "    # 코드 1.2b: 스택 클래스의 연산들\n",
+        "    def isEmpty( self ) :\n",
+        "       return self.top == -1\n",
+        "\n",
+        "    def isFull( self ) :\n",
+        "       return self.top == self.capacity-1\n",
+        "\n",
+        "    def push( self, item ):\n",
+        "        if not self.isFull() :\n",
+        "            self.top += 1\n",
+        "            self.array[self.top] = item\n",
+        "        else: pass              # overflow 예외는 처리하지 않았음\n",
+        "\n",
+        "    def pop( self ):\n",
+        "        if not self.isEmpty():\n",
+        "            self.top -= 1\n",
+        "            return self.array[self.top+1]\n",
+        "        else: pass              # underflow 예외는 처리하지 않았음\n",
+        "\n",
+        "    def peek( self ):\n",
+        "        if not self.isEmpty():\n",
+        "            return self.array[self.top]\n",
+        "        else: pass              # underflow 예외는 처리하지 않았음\n",
+        "\n",
+        "    def __str__(self ) :\n",
+        "        return str(self.array[0:self.top+1][::-1])\n",
+        "\n",
+        "    def size( self ) : return self.top+1\n",
+        "\n"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "def checkBrachets(statement):\n",
+        "  stack = ArrayStack(100)\n",
+        "  for ch in statement:\n",
+        "    if ch == \"{\" or ch == \"[\" or ch == \"(\":\n",
+        "      stack.push(ch)\n",
+        "    elif ch == \"}\" or ch == \"]\" or ch == \")\":\n",
+        "      if stack.isEmpty():\n",
+        "        return False\n",
+        "      else:\n",
+        "        left = stack.pop()\n",
+        "        if (ch == \"}\" and left != \"{\") or (ch == \"]\" and left != \"[\") or (ch==\")\" and left != \"(\"):\n",
+        "          return False\n",
+        "\n",
+        "  return stack.isEmpty()"
+      ],
+      "metadata": {
+        "id": "UDWPc66NLtZf"
+      },
+      "execution_count": 3,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "s1 = \"{ A[ (i+1) ] = 0; } \"\n",
+        "s2 = \"if( (i==0) && (j==0)\"\n",
+        "s3 = \"A[ ( i+1 ] ) = 0;   \"\n",
+        "print(s1, \" ---> \", checkBrachets(s1))\n",
+        "print(s2, \" ---> \", checkBrachets(s2))\n",
+        "print(s3, \" ---> \", checkBrachets(s3))"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "y2B0WJLdQUfV",
+        "outputId": "6b70409a-d4bf-4f1f-b9c2-2a1374d56c27"
+      },
+      "execution_count": 6,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "{ A[ (i+1) ] = 0; }   --->  True\n",
+            "if( (i==0) && (j==0)  --->  False\n",
+            "A[ ( i+1 ] ) = 0;     --->  False\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "def evalPostfix(expr):\n",
+        "  s = ArrayStack(100)\n",
+        "  for token in expr:\n",
+        "    if token in \"+-*/\":\n",
+        "      val1 = s.pop()\n",
+        "      val2 = s.pop()\n",
+        "      if (token == \"+\"): s.push(val1 + val2)\n",
+        "      elif (token == \"-\"): s.push(val1 - val2)\n",
+        "      elif (token == \"*\"): s.push(val1 * val2)\n",
+        "      elif (token == \"/\"): s.push(val1 / val2)\n",
+        "\n",
+        "    else:\n",
+        "      s.push(float(token))\n",
+        "\n",
+        "    return s.pop()"
+      ],
+      "metadata": {
+        "id": "T8RuzvW1RZn1"
+      },
+      "execution_count": 12,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "expr1 = ['8', '2', '+', '2', '/']\n",
+        "evalPostfix(expr1)"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "bM6YdzUuYajO",
+        "outputId": "5be66192-371b-41ab-a2ed-169d88c6ad3a"
+      },
+      "execution_count": 13,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "8.0"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 13
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "def precedence (op):\n",
+        "    if   (op=='(' or op==')') : return 0;\n",
+        "    elif (op=='+' or op=='-') : return 1;\n",
+        "    elif (op=='*' or op=='/') : return 2;\n",
+        "    else : return -1\n",
+        "\n",
+        "\n",
+        "def Infix2Postfix( expr ):\n",
+        "    s = ArrayStack(100)\n",
+        "    output = []\n",
+        "\n",
+        "    for term in expr :\n",
+        "        if term in '(' :\n",
+        "            s.push('(')\n",
+        "\n",
+        "        elif term in ')' :\n",
+        "            while not s.isEmpty() :\n",
+        "                op = s.pop()\n",
+        "                if op=='(' :\n",
+        "                    break;\n",
+        "                else :\n",
+        "                    output.append(op)\n",
+        "\n",
+        "        elif term in \"+-*/\" :\n",
+        "            while not s.isEmpty() :\n",
+        "                op = s.peek()\n",
+        "                if( precedence(term) <= precedence(op)):\n",
+        "                    output.append(op)\n",
+        "                    s.pop()\n",
+        "                else: break\n",
+        "            s.push(term)\n",
+        "\n",
+        "        else :                  # 피연산자\n",
+        "            output.append(term)\n",
+        "\n",
+        "    while not s.isEmpty() :\n",
+        "        output.append(s.pop())\n",
+        "\n",
+        "    return output\n",
+        "\n"
+      ],
+      "metadata": {
+        "id": "9u6FVA3hjVu0"
+      },
+      "execution_count": 14,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "print('스택의 응용3: 중위표기식 후위표기 변환\\n')\n",
+        "\n",
+        "infix1 = [ '8', '/', '2', '-', '3', '+', '(', '3', '*', '2', ')']\n",
+        "infix2 = [ '1', '/', '2', '*', '4', '*', '(', '1', '/', '4', ')']\n",
+        "\n",
+        "postfix1 = Infix2Postfix(infix1)\n",
+        "postfix2 = Infix2Postfix(infix2)\n",
+        "\n",
+        "result1 = evalPostfix(postfix1)\n",
+        "result2 = evalPostfix(postfix2)\n",
+        "\n",
+        "print('  중위표기: ', infix1)\n",
+        "print('  후위표기: ', postfix1)\n",
+        "print('  계산결과: ', result1, end='\\n\\n')\n",
+        "\n",
+        "print('  중위표기: ', infix2)\n",
+        "print('  후위표기: ', postfix2)\n",
+        "print('  계산결과: ', result2)"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "NkySYVnffN_s",
+        "outputId": "671130f6-79e7-40ad-da61-145b5acfbc92"
+      },
+      "execution_count": 18,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "스택의 응용3: 중위표기식 후위표기 변환\n",
+            "\n",
+            "  중위표기:  ['8', '/', '2', '-', '3', '+', '(', '3', '*', '2', ')']\n",
+            "  후위표기:  ['8', '2', '/', '3', '-', '3', '2', '*', '+']\n",
+            "  계산결과:  8.0\n",
+            "\n",
+            "  중위표기:  ['1', '/', '2', '*', '4', '*', '(', '1', '/', '4', ')']\n",
+            "  후위표기:  ['1', '2', '/', '4', '*', '1', '4', '/', '*']\n",
+            "  계산결과:  1.0\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [],
+      "metadata": {
+        "id": "rFFpFZJmjXO1"
+      },
+      "execution_count": null,
+      "outputs": []
+    }
+  ]
+}
