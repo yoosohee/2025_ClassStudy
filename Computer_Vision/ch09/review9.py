@@ -54,3 +54,17 @@ def writing(event,x,y,flags,param):
 reset()
 cv.namedWindow('Writing')
 cv.setMouseCallback('Writing', writing)
+
+while(True):
+    cv.imshow('Writing', img)
+    key=cv.waitKey(1)
+    if key==ord('e'):
+        reset()
+    elif key==ord('s'):
+        show()
+    elif key==ord('r'):
+        recognition()
+    elif key==ord('q'):
+        break
+    
+cv.destroyAllWindows()
