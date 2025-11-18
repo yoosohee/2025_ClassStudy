@@ -1,0 +1,357 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyNpfZJKpe5lsV+ScDeHDYwh",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/yoosohee/2025_ClassStudy/blob/main/Data_Structure/ch10\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "순차탐색"
+      ],
+      "metadata": {
+        "id": "38Whyhu0aT2r"
+      }
+    },
+    {
+      "cell_type": "code",
+      "execution_count": 9,
+      "metadata": {
+        "id": "SJc5UOAHW8TR"
+      },
+      "outputs": [],
+      "source": [
+        "def sequential_search(A, key, low, high):\n",
+        "  for i in range(low, high+1):\n",
+        "    if A[i] == key: # 탐색에 성공하면 키 값의 인덱스 반환\n",
+        "      return i\n",
+        "  return -1 # 탐색에 실패하면 -1 반환"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "array = [2,6,11,13,20,27,30,45,56,76,86]\n",
+        "n=len(array)\n",
+        "sequential_search(array, 30,0,n-1)"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "csKIPfdtakne",
+        "outputId": "7e9f719c-1228-436f-fdf7-a8b67d003702"
+      },
+      "execution_count": 12,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "6"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 12
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "sequential_search(array, 80,0,n-1)"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "lINVt_0JbXfu",
+        "outputId": "afda7c31-946d-4731-8f48-1e6b13ffa513"
+      },
+      "execution_count": 13,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "-1"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 13
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "def binary_search(A, key, low, high):\n",
+        "  if (low>high):\n",
+        "    return -1\n",
+        "\n",
+        "  middle=(low+high) // 2\n",
+        "\n",
+        "  if(key==A[middle]): # 탐색 성공\n",
+        "    return middle\n",
+        "  elif(key<A[middle]):\n",
+        "    return binary_search(A, key, low, middle-1)\n",
+        "  else:\n",
+        "    return binary_search(A, key, middle+1, high)"
+      ],
+      "metadata": {
+        "id": "I4IRNm0ycd-8"
+      },
+      "execution_count": 18,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "array = [2,6,11,13,20,27,30,45,56,76,86]\n",
+        "n=len(array)\n",
+        "binary_search(array, 27, 0, n-1)"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "1NYJ3cC-gEWN",
+        "outputId": "8bd7ed2c-de6a-4685-82ee-4f5172cbd4b0"
+      },
+      "execution_count": 26,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "5"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 26
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "def binary_search_iter(A,key,low,high):\n",
+        "  while(low<=high):\n",
+        "    middle=(low+high) // 2\n",
+        "\n",
+        "    if key==A[middle]:\n",
+        "      return middle\n",
+        "    elif(key>A[middle]):\n",
+        "      low=middle+1\n",
+        "    else:\n",
+        "      high=middle-1\n",
+        "    return -1"
+      ],
+      "metadata": {
+        "id": "q-_TNvkEesx-"
+      },
+      "execution_count": 19,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# 문자열을 위한 해시 함수\n",
+        "def hashFn(key, M): # M: 테이블 크기\n",
+        "  sum=0\n",
+        "  for c in key:\n",
+        "    sum=sum+ord(c) # 문자의 아스키 코드값을 sum에 더함\n",
+        "  return sum%M"
+      ],
+      "metadata": {
+        "id": "OiGalD6IfJS9"
+      },
+      "execution_count": 37,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "hashFn('hi', 10)"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "jDFN5dCDrLho",
+        "outputId": "670ab1aa-b313-451f-bcdb-4ce9fe916b62"
+      },
+      "execution_count": 38,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "9"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 38
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "M=13\n",
+        "table=[None]*M\n",
+        "def hashFn(key):\n",
+        "  return key%M"
+      ],
+      "metadata": {
+        "id": "rAFZlhWVqXAp"
+      },
+      "execution_count": 58,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "def insert(key):\n",
+        "  i=hashFn(key) # 해시 주소 계산\n",
+        "  count=M\n",
+        "  while count>0:\n",
+        "    if table[i]==None:\n",
+        "      break # 삽입 위치 발견\n",
+        "    i=(i+1)%M # 다음 조사 위치\n",
+        "    count-=1\n",
+        "\n",
+        "  if count>0: # 삽입할 곳이 있으면 삽입\n",
+        "    table[i]=key"
+      ],
+      "metadata": {
+        "id": "I4_MAmfBqj87"
+      },
+      "execution_count": 59,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "def search(key):\n",
+        "  i=hashFn(key)\n",
+        "  count=M\n",
+        "  while count>0:\n",
+        "    if table[i]==None: # 탐색 실패. None 반환\n",
+        "      return None\n",
+        "    if table[i]==key: # 탐색 성공. 레코드 반환\n",
+        "      return table[i]\n",
+        "    i=(i+1)%M # 다음 조사 위치\n",
+        "    count-=1\n",
+        "\n",
+        "  return None # 탐색 실패. None 반환"
+      ],
+      "metadata": {
+        "id": "qY8sVHNFuhaq"
+      },
+      "execution_count": 60,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "def delete(key):\n",
+        "  i=hashFn(key)\n",
+        "  count=M\n",
+        "  while count>0:\n",
+        "    if table[i]==key: # 삭제할 위치 발견: i\n",
+        "      table[i]=-1 # -1을 저장. 사용되었다가 삭제된 경우임\n",
+        "      return\n",
+        "    if table[i]==None: # None은 테이블에 삭제할 레코드가 없다는 것을 의미\n",
+        "      return\n",
+        "    i=(i+1)%M # 다음 조사 위치\n",
+        "    count-=1"
+      ],
+      "metadata": {
+        "id": "Q4jZ0zqYu1uz"
+      },
+      "execution_count": 61,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "data = [45, 27, 88, 9, 71, 60, 46, 38, 26]\n",
+        "for d in data:\n",
+        "  print(\"h(%2d)=%2d\"%(d,hashFn(d)), end=' ')\n",
+        "  insert(d)\n",
+        "  print(table)\n",
+        "\n",
+        "print(\"46탐색-->\", search(46))\n",
+        "print(\"39탐색-->\", search(39))\n",
+        "\n",
+        "print(\"60삭제-->\", end='')\n",
+        "delete(60)\n",
+        "print(table)\n",
+        "print(\"46삭제-->\", end='')\n",
+        "delete(46)\n",
+        "print(table)"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "3iQ4zROLvU4z",
+        "outputId": "0eae19b7-ec8d-4015-bcfb-0c19f0bf11b7"
+      },
+      "execution_count": 62,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "h(45)= 6 [None, None, None, None, None, None, 45, None, None, None, None, None, None]\n",
+            "h(27)= 1 [None, 27, None, None, None, None, 45, None, None, None, None, None, None]\n",
+            "h(88)=10 [None, 27, None, None, None, None, 45, None, None, None, 88, None, None]\n",
+            "h( 9)= 9 [None, 27, None, None, None, None, 45, None, None, 9, 88, None, None]\n",
+            "h(71)= 6 [None, 27, None, None, None, None, 45, 71, None, 9, 88, None, None]\n",
+            "h(60)= 8 [None, 27, None, None, None, None, 45, 71, 60, 9, 88, None, None]\n",
+            "h(46)= 7 [None, 27, None, None, None, None, 45, 71, 60, 9, 88, 46, None]\n",
+            "h(38)=12 [None, 27, None, None, None, None, 45, 71, 60, 9, 88, 46, 38]\n",
+            "h(26)= 0 [26, 27, None, None, None, None, 45, 71, 60, 9, 88, 46, 38]\n",
+            "46탐색--> 46\n",
+            "39탐색--> None\n",
+            "60삭제-->[26, 27, None, None, None, None, 45, 71, -1, 9, 88, 46, 38]\n",
+            "46삭제-->[26, 27, None, None, None, None, 45, 71, -1, 9, 88, -1, 38]\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [],
+      "metadata": {
+        "id": "Wl5VpR0ayvts"
+      },
+      "execution_count": null,
+      "outputs": []
+    }
+  ]
+}
